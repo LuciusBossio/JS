@@ -1,0 +1,45 @@
+doctype html
+html
+    head
+        title Checkout
+        link(rel="stylesheet", href="style.css")
+    body
+        h1 Checkout
+
+        //- how to deal with arrays - display each item in an array
+        //- names refers to the names field of the object that was sent from the server
+        //- for each name in names array do X
+        //- each name /counter assigned to name/ in names /field in the object
+            h2 = name
+        
+        //- Nested loop - sent {data - field of object, data - actual object}
+        //- each row in data
+            //- deal with each item in 2D array seperately
+            each number in row
+                span=number     //-variable number will take on each number in each row and add to span
+            //- add break get to the beginning of the next row once we have rendered a row
+            br
+        table
+            tr
+                th Size
+                th Toppings
+                th Price
+            each item in orderItems
+                tr
+                    td=item.size
+                    if item.toppings == ""
+                        td Cheese
+                    else
+                        td=item.toppings
+                    td=item.price
+        h2="Total Price: " + totalPrice
+        br
+        h2="Thank you for shopping at Bossio's Trattoria"
+        
+        
+
+        
+        
+
+
+        

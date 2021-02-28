@@ -1,0 +1,105 @@
+<!--How to write a form where multiple pizzas can be ordered-->
+<!--Add item button sends info to server - server sends response - however the communication stays open - we do this by creating a session-->
+<!--take data apart when received from server and display it-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.min.css">     
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css">
+    <link rel ="stylesheet" type ="text/css" href ="style.css"/>
+</head>
+
+<body>
+    <header class="jumbotron">      <!--jumbotron - class from bootstrap-->
+        <h1 class="display-3">Pizza Order Form</h1>
+    </header>
+
+    <section class="container">     <!--bootstrap grid container - flexible on different devices - 12 horizontal spaces in grid-->
+        <div class="row">       
+            <div class="col-sm-5">      <!--allocate five grid position to row-->
+                <form action="/submitOrder" method="GET">       <!--# - form data will not be handled using normal submit button-->
+                    <!--Will reintroduce customer information in next milestone - will have separate customer info entry page-->
+                    <!-- <div class="form-group">
+                        <h2>Customer Information</h2>
+                        <label for="firstName">FirstName</label>
+                        <input class="form-control" type="text" name="firstName" id="firstName">
+                        <label for="lastName">LastName</label>
+                        <input class="form-control" type="text" name="lastName" id="lastName">
+                    </div> -->
+
+                    <div class="form-group">        <!--used to wrap different section of the form - similar to a fieldset-->
+                        <h2>Select Size</h2>
+                        <!--radio-inline - keep text to the right of the radio button - line up radio buttons horizontally-->
+                        <label class="radio-inline" for="small"><input type="radio" name="size" id="small" value="Small"        
+                                checked>
+                            Small
+                        </label>
+                        <label class="radio-inline" for="medium"><input type="radio" name="size" id="medium"
+                                value="Medium">
+                            Medium
+                        </label>
+                        <label class="radio-inline" for="large"><input type="radio" name="size" id="large"
+                                value="Large">
+                            Large
+                        </label>
+                    </div>
+                    <h2>Select Toppings</h2>
+                    <div class="form-group">
+                        <div class="checkbox">      <!--checkbox - provides better spacing for the checkboxes-->
+                            <label for="pepperoni"> <!--input inside of label allows text to appear to the right of the checkbox-->
+                                <input type="checkbox" name="toppings[]" id="pepperoni" value="Pepperoni">
+                                Pepperoni
+                            </label>
+                        </div>
+                        <div class="checkbox">
+                            <label for="olives">
+                                <input type="checkbox" name="toppings[]" id="olives" value="Olives">
+                                Olives
+                            </label>
+                        </div>
+                        <div class="checkbox">
+                            <label for="mushrooms">
+                                <input type="checkbox" name="toppings[]" id="mushrooms" value="Mushrooms">
+                                Mushrooms
+                            </label>
+                        </div>
+                    </div>
+                    <button id="order" type="button">Add Item</button>     <!--type="button" - normal button rather than a submit button - won't refresh the page-->
+                    
+                    <button type="submit">Submit Order</button>
+                    <br><br>
+                </form>
+                
+            </div>
+            <div class="col-sm-2">      <!--create area two columns wide-->
+            </div>
+            <div class="col-sm-5">      <!--5 columns to the right of the form-->
+                <!--Create a table or list to display order items and total price-->
+                <!--<h1 id = "details"></h1>            
+                <h4 id = "orderSize"></h4>
+                <h4 id = "orderToppings"></h4>
+                <h4 id = "orderPrice"></h4>
+                <h4 id = "orderTotalPrice"></h4>-->
+                <table id = "orderInfo">
+                </table>
+                <br>
+                <h2 id = "orderTP"></h2>
+            </div>
+        </div>
+    </section>
+
+    <!--add JQuery to project-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
+    <!--add bootstrap JQuery library - use JQuery and bootstrap together-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!--add JS to its own page - script.js-->
+    <script src="js/script.js"></script>
+</body>
+
+</html>
